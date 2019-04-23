@@ -10,7 +10,7 @@ class MovieInfo extends Component {
     render() {
         return (
             <div>
-                
+                INFO
             </div>
         )
     }

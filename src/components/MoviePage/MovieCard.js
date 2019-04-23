@@ -20,11 +20,10 @@ const styles = {
 
 class MovieCard extends Component {
 
-  handleClick = (event) => {
+  handleClick = () => {
     console.log('clicked card', this.props.movie.id);
-    this.props.dispatch({type:'SHOW_DETAILS', paylod: this.props.movie.id})
+    this.props.dispatch({type:'MOVIE_DETAILS', paylod: this.props.movie.id})
     this.props.history.push('/info')
-
   }
 
   render() {
