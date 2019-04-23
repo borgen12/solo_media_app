@@ -17,15 +17,20 @@ const styles = {
   },
 };
 
+/* handleClick = (event) => {
+  return event
+} */
+
 const MovieCard = (props) => {
   const { classes } = props;
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} >
       <CardActionArea>
         <CardMedia
           className={classes.media}
           image={props.movie.image_url}
           title={props.movie.title}
+          
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
