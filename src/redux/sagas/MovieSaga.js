@@ -4,7 +4,7 @@ import axios from 'axios';
 function* getMovieSaga(action) {
     console.log('got the movies', action);
     try {
-        const response = yield axios.get('/api/user')
+        const response = yield axios.get('/api/media')
         console.log('going to the reducers...');
         
         yield put({ type: 'SET_MOVIE', payload: response.data });

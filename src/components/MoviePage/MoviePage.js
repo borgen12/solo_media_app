@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 
 class MoviePage extends Component {
 
-    /* componentDidMount = () => {
+    componentDidMount = () => {
         this.props.dispatch({ type: 'GET_MOVIE' })
-    } */
+    } 
     render () {
         return (
             <div>
                 <h2>Recently Watched</h2>
-                {/* <MovieToCard/> */}
+                <MovieToCard/> 
             </div>
         )
     }
@@ -21,4 +21,4 @@ const mapReduxStateToProps = reduxState => ({
     reduxState
 });
 
-export default connect(mapReduxStateToProps(MoviePage))
+export default connect(mapReduxStateToProps)(MoviePage)
