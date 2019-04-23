@@ -64,7 +64,7 @@ class App extends Component {
             />
             <ProtectedRoute
               exact
-              path="/info"
+              path="/details"
               component={MovieInfo}
             />
             

@@ -23,7 +23,7 @@ class MovieCard extends Component {
   handleClick = () => {
     console.log('clicked card', this.props.movie.id);
     this.props.dispatch({type:'MOVIE_DETAILS', paylod: this.props.movie.id})
-    this.props.history.push('/info')
+    this.props.history.push('/details')
   }
 
   render() {
@@ -59,4 +59,4 @@ const mapReduxStateToProps = reduxState => ({
   reduxState
 });
 
-export default (connect(mapReduxStateToProps)(withStyles(styles)(MovieCard)));
+export default withRouter((connect(mapReduxStateToProps)(withStyles(styles)(MovieCard))));
