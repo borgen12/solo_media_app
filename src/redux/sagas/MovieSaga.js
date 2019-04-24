@@ -18,9 +18,9 @@ function* getMovieSaga(action) {
 function* movieInfoSaga(action) {
     console.log('got the info', action);
     try{
-        const response = yield axios.get('/api/media')
-        console.log('going to reducers...');
-        yield put({ type: 'SET_INFO', payload: response.data});
+        const response = yield axios.get(`/api/media/${action.payload}`)
+        console.log('going to inforeducer...', response.data);
+        yield put({ type: 'SET_DETAILS', payload: response.data});
         console.log('data is', response.data);
     }
     catch (error) {
@@ -30,7 +30,7 @@ function* movieInfoSaga(action) {
 }
 function* movieSaga() {
     yield takeLatest('GET_MOVIE', getMovieSaga);
-    yield takeLatest('MOVIE_INFO', movieInfoSaga)
+    yield takeLatest('MOVIE_DETAILS', movieInfoSaga)
 }
 
 export default movieSaga;

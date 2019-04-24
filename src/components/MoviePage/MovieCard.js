@@ -11,18 +11,22 @@ import { withRouter } from 'react-router-dom'
 
 const styles = {
   card: {
-    maxWidth: 345,
+    maxWidth: 200,
+    maxHeight: 500,
+    display: "inline-block",
+    margin: 25,
   },
   media: {
-    height: 140,
+    height: 300,
   },
+
 }; 
 
 class MovieCard extends Component {
 
   handleClick = () => {
     console.log('clicked card', this.props.movie.id);
-    this.props.dispatch({type:'MOVIE_DETAILS', paylod: this.props.movie.id})
+    this.props.dispatch({type:'MOVIE_DETAILS', payload: this.props.movie.id})
     this.props.history.push('/details')
   }
 

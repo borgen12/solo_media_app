@@ -4,13 +4,11 @@ import { connect } from 'react-redux';
 
 class MovieInfo extends Component {
 
-    componentDidMount = () => {
-        this.props.dispatch({ type: 'GET_MOVIE' })
-    }
     render() {
         return (
             <div>
-                INFO
+                <h3>INFO</h3>
+                <h3>{this.props.reduxState.movieInfo.movieInfoReducer.description}</h3>
             </div>
         )
     }

@@ -18,6 +18,7 @@ import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import MoviePage from '../MoviePage/MoviePage';
 import MovieInfo from '../MoviePage/MovieInfo';
+import AdminPage from '../AdminPage/AdminPage';
 
 import './App.css';
 
@@ -66,6 +67,11 @@ class App extends Component {
               exact
               path="/details"
               component={MovieInfo}
+            />
+            <ProtectedRoute
+              exact
+              path="/admin"
+              component={AdminPage}
             />
             
             {/* If none of the other routes matched, we will show a 404. */}

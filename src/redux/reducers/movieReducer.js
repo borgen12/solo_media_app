@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+
 const movieReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIE':
@@ -7,4 +9,15 @@ const movieReducer = (state = [], action) => {
     }
 }
 
-export default movieReducer
+const movieInfoReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_DETAILS':
+            return action.payload;
+        default:
+            return state;
+    }
+}
+export default combineReducers({
+    movieReducer,
+    movieInfoReducer,
+});

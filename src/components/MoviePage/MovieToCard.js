@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import MovieCard from './MovieCard';
@@ -6,19 +6,20 @@ import MovieCard from './MovieCard';
 
 
 //maps out project data to cards on ProjectItem
-const MovieToCard = (props) => {
+class MovieToCard extends Component {
+    render () {
+        return (
+            <div className="Project">
 
-    return (
-        <div className="Project">
-
-            <section>
-                {
-                    props.reduxState.movies.map(movie =>
-                        <MovieCard key={movie.id} movie={movie} />)
-                }
-            </section>
-        </div>
-    );
+                <section>
+                    {
+                        this.props.reduxState.movies.movieReducer.map(movie =>
+                            <MovieCard key={movie.id} movie={movie} />)
+                    }
+                </section>
+            </div>
+        );
+    }
 }
 const mapReduxStateToProps = reduxState => ({
     reduxState
