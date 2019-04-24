@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieToCard from './MovieToCard';
+import './MoviePage.css';
 import { connect } from 'react-redux';
 
 class MoviePage extends Component {
@@ -10,9 +11,10 @@ class MoviePage extends Component {
     render () {
         return (
             <div>
-                <h2>Recently Watched</h2>
-                <h2>All Movies</h2>
-                <MovieToCard/> 
+                <h2 className="recent">Recently Watched</h2>
+                <section className="display">All Movies
+                    <MovieToCard/> 
+                </section>
             </div>
         )
     }
