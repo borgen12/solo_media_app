@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MovieToCard from './MovieToCard';
 import './MoviePage.css';
 import { connect } from 'react-redux';
+import Divider from '@material-ui/core/Divider';
 
 class MoviePage extends Component {
 
@@ -11,7 +12,10 @@ class MoviePage extends Component {
     render () {
         return (
             <div>
-                <h2 className="recent">Recently Watched</h2>
+                <section>
+                    <h2 className="recent">Recently Watched</h2>
+                </section>
+                <Divider />
                 <section className="display">All Movies
                     <MovieToCard/> 
                 </section>

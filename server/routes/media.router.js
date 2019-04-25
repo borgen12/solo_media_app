@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
     console.log('projects GET request');
-    pool.query(`SELECT * FROM "movies"`)
+    pool.query(`SELECT * FROM "movies" ORDER BY "year"`)
         .then(result => {
             res.send(result.rows);
         })
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    console.log('project info GET request');
+    console.log('movie info GET request');
     const queryText = `SELECT * FROM "movies" WHERE id = $1`;
     pool.query(queryText, [req.params.id])
         .then(result => {
@@ -31,20 +31,60 @@ router.get('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    const queryText = 'SELECT* FROM "projects" WHERE id=$1';
+    const queryText = 'DELETE FROM "movies" WHERE id=$1';
     pool.query(queryText, [req.params.id])
         .then(() => { res.sendStatus(200); })
         .catch((err) => {
-            console.log('Error completing SELECT project query', err);
+            console.log('Error completing SELECT movie query', err);
             res.sendStatus(500);
         });
 });
+
+router.put('/like/:id', (req, res) => {
+    console.log(req.params);
+    const galleryId = req.params.id;
+    const sqlText = `UPDATE datimages SET likes=likes+1 WHERE id=$1`;
+    pool.query(sqlText, [galleryId])
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500);
+        })
+    /* for(const galleryItem of galleryItems) {
+        if(galleryItem.id == galleryId) {
+            galleryItem.likes += 1;
+        }
+    } */
+    res.sendStatus(200);
+}); // END PUT Route
+
 
 
 /**
  * POST route template
  */
 router.post('/', (req, res) => {
+    console.log('in post router');
+
+    const newProject = req.body;
+    const queryText = `INSERT INTO "movies" ("title", "year", "description", "length", "video_url", "image_url")
+                    VALUES ($1, $2, $3, $4, $5, $6)`;
+    const queryValues = [
+        newProject.title,
+        newProject.year,
+        newProject.description,
+        newProject.length,
+        newProject.video_url,
+        newProject.image_url,
+    ];
+    pool.query(queryText, queryValues)
+        .then(() => { res.sendStatus(201); })
+        .catch((err) => {
+            console.log('Error completing SELECT movies query', err);
+            res.sendStatus(500);
+        });
 
 });
 

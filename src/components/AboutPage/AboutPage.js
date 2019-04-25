@@ -1,5 +1,4 @@
 import React from 'react';
-import MoviePage from '../MoviePage/MoviePage';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.

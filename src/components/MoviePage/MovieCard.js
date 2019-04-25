@@ -11,13 +11,15 @@ import { withRouter } from 'react-router-dom'
 
 const styles = {
   card: {
-    maxWidth: 200,
-    maxHeight: 500,
+    height: 400,
+    width: 210,
     display: "inline-block",
     margin: 25,
+    
   },
   media: {
     height: 300,
+    width: 210
   },
 
 }; 
@@ -42,12 +44,12 @@ class MovieCard extends Component {
 
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom variant="h5" component="h1">
               {this.props.movie.title}
             </Typography>
             <Typography component="p">
-              {this.props.movie.description}
-            </Typography>
+              {this.props.movie.year}
+            </Typography> 
           </CardContent>
         </CardActionArea>
       </Card>
