@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
+import SearchBar from '../SearchBar/SearchBar'
 
 const Nav = (props) => (
   <div className="nav">
@@ -32,6 +33,7 @@ const Nav = (props) => (
       <Link className="nav-link" to="/user">
         My Page
       </Link>
+      <SearchBar/>
     </div>
   </div>
 );

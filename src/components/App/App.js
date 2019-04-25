@@ -19,6 +19,7 @@ import InfoPage from '../InfoPage/InfoPage';
 import MoviePage from '../MoviePage/MoviePage';
 import MovieInfo from '../MoviePage/MovieInfo';
 import AdminPage from '../AdminPage/AdminPage';
+import SideNavb from '../SideNav/SideNav';
 
 import './App.css';
 
@@ -32,6 +33,7 @@ class App extends Component {
       <Router>
         <div>
           <Nav />
+          {/* <SideNavb/> */}
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/home" />

@@ -6,3 +6,7 @@
 .display {
     text-align: center,
 }
+
+.watched {
+    display: inline-block;
+}

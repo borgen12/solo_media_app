@@ -1,31 +1,23 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
-router.put('/like/:id', (req, res) => {
-    console.log(req.params);
-    const galleryId = req.params.id;
-    const sqlText = `UPDATE  SET likes=likes+1 WHERE id=$1`;
-    pool.query(sqlText, [galleryId])
-        .then((result) => {
-            res.sendStatus(200);
-        })
-        .catch((error) => {
-            console.log(`Error making database query ${sqlText}`, error);
-            res.sendStatus(500);
-        })
-    /* for(const galleryItem of galleryItems) {
-        if(galleryItem.id == galleryId) {
-            galleryItem.likes += 1;
-        }
-    } */
-    res.sendStatus(200);
-}); // END PUT Route
+function* changeViewSaga(action) {
+    console.log('Hit the changeViewSaga', action);
 
-
-function* movieSaga() {
-    yield takeLatest('ADD_MOVIE', addMovieSaga);
-    yield takeLatest('DELETE_MOVIE', deleteMovieSaga);
+    try {
+        yield axios.put(`/api/media/${action.payload}`);
+        yield put({ type: 'GET_MOVIE' });
+    }
+    catch (error) {
+        console.log(`Couldn't change the boolean`, error);
+        alert(`Sorry, couldn't change property. Try again later`);
+    }
 }
 
 
-export default movieSaga;
+function* viewedSaga() {
+    yield takeLatest('TURN_TRUE', changeViewSaga);
+}
+
+
+export default viewedSaga;

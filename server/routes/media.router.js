@@ -40,10 +40,10 @@ router.delete('/:id', (req, res) => {
         });
 });
 
-router.put('/like/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     console.log(req.params);
     const galleryId = req.params.id;
-    const sqlText = `UPDATE datimages SET likes=likes+1 WHERE id=$1`;
+    const sqlText = `UPDATE "movies" SET "viewed" = 'True' WHERE id=$1`;
     pool.query(sqlText, [galleryId])
         .then((result) => {
             res.sendStatus(200);
@@ -52,11 +52,6 @@ router.put('/like/:id', (req, res) => {
             console.log(`Error making database query ${sqlText}`, error);
             res.sendStatus(500);
         })
-    /* for(const galleryItem of galleryItems) {
-        if(galleryItem.id == galleryId) {
-            galleryItem.likes += 1;
-        }
-    } */
     res.sendStatus(200);
 }); // END PUT Route
 
