@@ -22,6 +22,9 @@ class SearchBar extends Component{
         query: '',
     }
     
+    handleChangeFor = () => {
+        
+    }
     
     render() {
         const { classes } = this.props;
@@ -41,7 +44,7 @@ class SearchBar extends Component{
                             ),
                         }}
                     />
-                    <Button onClick={this.search} className="button">Search</Button>
+                    <Button onClick={this.searchQuery} className="button">Search</Button>
                 </form>
             </div>
 
