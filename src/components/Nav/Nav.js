@@ -33,7 +33,9 @@ const Nav = (props) => (
       <Link className="nav-link" to="/user">
         My Page
       </Link>
-      <SearchBar/>
+    </div>
+    <div className="search">
+      <SearchBar />
     </div>
   </div>
 );

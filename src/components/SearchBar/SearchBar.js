@@ -7,6 +7,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
 
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -17,23 +18,31 @@ const styles = theme => ({
 });
 
 class SearchBar extends Component{
+    state = {
+        query: '',
+    }
+    
     
     render() {
         const { classes } = this.props;
         return (
             <div>
-                <TextField
-                    className={classes.margin}
-                    id="input-with-icon-textfield"
-                    label="TextField"
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <SearchIcon />
-                            </InputAdornment>
-                        ),
-                    }}
-                />
+                <form>
+                    <TextField
+                        className={classes.margin}
+                        /* onChange={this.handleChangeFor('query')} */
+                        id="input-with-icon-textfield"
+                        label=""
+                        InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <SearchIcon />
+                                </InputAdornment>
+                            ),
+                        }}
+                    />
+                    <Button onClick={this.search} className="button">Search</Button>
+                </form>
             </div>
 
         )

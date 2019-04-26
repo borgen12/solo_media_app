@@ -43,7 +43,7 @@ router.delete('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
     console.log(req.params);
     const galleryId = req.params.id;
-    const sqlText = `UPDATE "movies" SET "viewed" = 'True' WHERE id=$1`;
+    const sqlText = `UPDATE "movies" SET "viewed" = NOT "viewed" WHERE id=$1`;
     pool.query(sqlText, [galleryId])
         .then((result) => {
             res.sendStatus(200);

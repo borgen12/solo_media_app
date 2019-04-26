@@ -8,7 +8,14 @@ import Button from '@material-ui/core/Button';
 
 class MovieInfoItem extends Component {
 
+    state = {
+        watched: false
+    }
+
     addToList = () => {
+        this.setState({
+            watched: !this.state.watched
+        })
         this.props.dispatch({ type: "TURN_TRUE", payload: this.props.movie.id })
     }
 
@@ -27,7 +34,11 @@ class MovieInfoItem extends Component {
                         <Item.Extra>
                             <Label>{this.props.movie.length} minutes</Label>
                             <Label icon='globe' content='Additional Languages' />
-                            <Button onClick={this.addToList} className="button">Add To Watchlist</Button>
+                            <Button onClick={this.addToList} className="button">
+                            {this.props.movie.viewed ?
+                            
+                            "Remove from Watchlist" : "Add to Watchlist"}
+                            </Button>
                         </Item.Extra>
                     </Item.Content>
                 </Item>

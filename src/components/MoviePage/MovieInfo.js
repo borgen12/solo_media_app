@@ -8,9 +8,6 @@ import MovieInfoItem from './MovieInfoItem';
 
 class MovieInfo extends Component {
 
-    addToList = () => {
-        this.props.dispatch({type: "TURN_TRUE", payload: this.props.movie.id})
-    }
 
     render() {
         return (

@@ -16,7 +16,7 @@ class MoviePage extends Component {
             <div>
                 <section>
 
-                    <h2 className="recent">Recently Watched</h2>
+                    <h2 className="recent">Watchlist</h2>
                     {this.props.reduxState.movies.movieReducer.map(movie =>
                     <section key={movie.id} className="watched">
                             {movie.viewed ?
@@ -27,7 +27,8 @@ class MoviePage extends Component {
                 
                 <Divider />
                 
-                <section className="display">All Movies
+                <section id="display">
+                    <h2>All Movies</h2>
                     <MovieToCard/> 
                 </section>
             </div>
