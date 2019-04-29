@@ -3,5 +3,17 @@
 }
 
 .head {
-    text-align: center;
+    margin: 20px;
+    float: left;
+}
+
+.submit {
+    margin: 20px;
+    display: block;
+    float: left;
+}
+
+.table {
+    width: 50%;
+    float: right;
 }

@@ -23,7 +23,19 @@ class SearchBar extends Component{
     }
     
     handleChangeFor = () => {
-        
+        return (event) => {
+            this.setState({
+                query: event.target.value
+            })
+        }
+    }
+
+    searchQuery = () => {
+
+        this.props.dispatch({ type: 'NEW_SEARCH', payload: this.state.query })
+        this.setState({
+            query: ''
+        })
     }
     
     render() {
@@ -33,7 +45,8 @@ class SearchBar extends Component{
                 <form>
                     <TextField
                         className={classes.margin}
-                        /* onChange={this.handleChangeFor('query')} */
+                        value={this.state.query}
+                        onChange={this.handleChangeFor('query')} 
                         id="input-with-icon-textfield"
                         label=""
                         InputProps={{

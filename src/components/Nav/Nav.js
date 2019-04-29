@@ -5,6 +5,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import SearchBar from '../SearchBar/SearchBar'
 
+
 const Nav = (props) => (
   <div className="nav">
     <Link to="/home">

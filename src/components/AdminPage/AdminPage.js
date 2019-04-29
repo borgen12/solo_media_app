@@ -72,11 +72,11 @@ class AdminPage extends Component {
         return (
             <div className="Admin">
                 <header className="head">
-                    <h1>Admin</h1>
-                </header>
-                <Divider />
-                <section>
                     <h1>Add a Movie</h1>
+                </header>
+                {/* <Divider /> */}
+                <section className="submit">
+                    <h1></h1>
                     <form onSubmit={this.addNewMovie} className={classes.root} autoComplete="off" className={classes.container} noValidate>
                         <TextField
                             label="Title"
@@ -85,6 +85,7 @@ class AdminPage extends Component {
                             onChange={this.handleChangeFor('title')}
                             margin="normal"
                         />
+                        <br/>
                         <TextField
                             label="Image URL"
                             className={classes.textField}
@@ -92,6 +93,7 @@ class AdminPage extends Component {
                             onChange={this.handleChangeFor('image_url')}
                             margin="normal"
                         />
+                        
                         <TextField
                             label="Video URL"
                             className={classes.textField}
@@ -99,6 +101,7 @@ class AdminPage extends Component {
                             onChange={this.handleChangeFor('video_url')}
                             margin="normal"
                         />
+                        <br/>
                         <TextField
                             label="Length (min)"
                             className={classes.textField}
@@ -113,6 +116,7 @@ class AdminPage extends Component {
                             onChange={this.handleChangeFor('year')}
                             margin="normal"
                         />
+                        <br/>
                         <TextField
                             label="Description"
                             className={classes.description}
@@ -120,11 +124,15 @@ class AdminPage extends Component {
                             onChange={this.handleChangeFor('description')}
                             margin="normal"
                         />
+                        <br/>
+                        <Button onClick={this.addNewMovie} className="button">Add Movie</Button>
                     </form>
                 </section>
-                <Button onClick={this.addNewMovie} className="button">Add Movie</Button>
                 <br/>
-                <AdminTable/>
+                <section className="table">
+                <h3>Available Movies</h3>
+                    <AdminTable />
+                </section>
             </div>
         );
     }
