@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import AdminTable from './AdminTable';
 import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
+import RawInputField from '../RawInputField/RawInputField'
 
 const styles = theme => ({
     container: {
@@ -125,6 +126,7 @@ class AdminPage extends Component {
                             margin="normal"
                         />
                         <br/>
+                        <RawInputField/>
                         <Button onClick={this.addNewMovie} className="button">Add Movie</Button>
                     </form>
                 </section>

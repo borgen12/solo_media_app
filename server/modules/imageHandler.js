@@ -1,4 +1,4 @@
-const pool = require('../modules/pool');
+const pool = require('./pool');
 const fs = require('fs-extra');
 const AWS = require('aws-sdk');
 

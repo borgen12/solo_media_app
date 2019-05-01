@@ -5,7 +5,7 @@ const pool = require('../modules/pool');
 const multer = require('multer');
 const multerDest = process.env.multer_dest || '../uploads';
 const upload = multer({ dest: multerDest });
-const { uploadPost, uploadPostWithText, generateSignedUrls } = require('../modules/videoHandler');
+const { uploadPost, uploadPostWithText, generateSignedUrls } = require('../modules/imageHandler');
 
 router.post('/image', upload.single('file'), (req, res) => {
     uploadPost(req, res);
