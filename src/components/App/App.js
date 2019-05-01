@@ -20,6 +20,7 @@ import MoviePage from '../MoviePage/MoviePage';
 import MovieInfo from '../MoviePage/MovieInfo';
 import AdminPage from '../AdminPage/AdminPage';
 import SideNavb from '../SideNav/SideNav';
+import SearchBar from '../SearchBar/SearchBar'
 
 import './App.css';
 
@@ -74,6 +75,11 @@ class App extends Component {
               exact
               path="/admin"
               component={AdminPage}
+            />
+            <ProtectedRoute
+              exact
+              path="/search"
+              component={SearchBar}
             />
             
             {/* If none of the other routes matched, we will show a 404. */}

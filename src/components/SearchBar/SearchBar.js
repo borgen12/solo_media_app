@@ -8,12 +8,14 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
+import { withRouter } from 'react-router-dom'
 
 import SearchIcon from '@material-ui/icons/Search';
 
 const styles = theme => ({
     margin: {
         margin: theme.spacing.unit,
+        marginleft: 400
     },
 });
 
@@ -33,6 +35,7 @@ class SearchBar extends Component{
     searchQuery = () => {
 
         this.props.dispatch({ type: 'NEW_SEARCH', payload: this.state.query })
+        this.props.history.push('/')
         this.setState({
             query: ''
         })
@@ -72,4 +75,4 @@ const mapReduxStateToProps = reduxState => ({
     reduxState
 });
 
-export default (connect(mapReduxStateToProps)(withStyles(styles)(SearchBar)));
+export default withRouter(connect(mapReduxStateToProps)(withStyles(styles)(SearchBar)));

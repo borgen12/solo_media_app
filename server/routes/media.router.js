@@ -6,28 +6,29 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-    console.log('projects GET request');
-    pool.query(`SELECT * FROM "movies" ORDER BY "year"`)
-        .then(result => {
-            res.send(result.rows);
-        })
-        .catch(error => {
-            console.log(`Couldn't get data`, error);
-            res.sendStatus(500);
-        })
-});
-
-router.get('/:id', (req, res) => {
-    console.log('movie info GET request');
-    const queryText = `SELECT * FROM "movies" WHERE id = $1`;
-    pool.query(queryText, [req.params.id])
-        .then(result => {
-            res.send(result.rows);
-        })
-        .catch(error => {
-            console.log(`Couldn't get data`, error);
-            res.sendStatus(500);
-        })
+    console.log('projects GET request:', req.query );
+    console.log('req.query.search', req.query.search);
+    if(req.query.search === 'all') {
+        pool.query(`SELECT * FROM "movies" ORDER BY "year"`)
+            .then(result => {
+                res.send(result.rows);
+            })
+            .catch(error => {
+                console.log(`Couldn't get data`, error);
+                res.sendStatus(500);
+            })
+    }
+    else {
+        const queryText = `SELECT * FROM "movies" WHERE title = $1`;
+        pool.query(queryText, [req.query.search])
+            .then(result => {
+                res.send(result.rows);
+            })
+            .catch(error => {
+                console.log(`Couldn't get data`, error);
+                res.sendStatus(500);
+            })
+    }
 });
 
 router.delete('/:id', (req, res) => {
