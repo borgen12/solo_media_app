@@ -4,6 +4,7 @@ import 'semantic-ui-css/semantic.min.css';
 import { Player } from 'video-react';
 import "../../../node_modules/video-react/dist/video-react.css";
 import MovieInfoItem from './MovieInfoItem';
+import Images from '../Images/Images';
 
 
 class MovieInfo extends Component {
@@ -13,6 +14,7 @@ class MovieInfo extends Component {
         return (
             <div>
                 <h1>INFO</h1>
+                <Images/>
                 {this.props.reduxState.movieInfo.movieInfoReducer.map(movie =>
                 <MovieInfoItem key={movie.id} movie={movie}/>
 

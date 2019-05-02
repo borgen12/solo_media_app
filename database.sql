@@ -25,3 +25,7 @@ VALUES ('Godzilla vs Megalon', 'The undersea nation of Seatopia sends the gigant
 ('Ghidora, the Three-Headed Monster','After a meteorite unleashes a three-headed beast upon Tokyo, Mothra tries to unite with Godzilla and Rodan to battle the extraterrestrial threat.', '1964', '89', 'videos/ghidora.mp4', 'images/ghidora3.jpg')
 ;
 
+CREATE TABLE "post" (
+    "id" SERIAL PRIMARY KEY,
+    "media_key" VARCHAR (1000) NOT NULL
+);
