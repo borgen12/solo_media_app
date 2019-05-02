@@ -65,6 +65,8 @@ function uploadToS3(file, res) {
     return new Promise(resolve => {
         fs.readFile(file.path)
             .then(data => {
+                console.log('data is', data.Key);
+                
                 verbose && console.log(`file read: `, data);
                 let s3bucket = new AWS.S3({
                     accessKeyId: IAM_USER_KEY,
