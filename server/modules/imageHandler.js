@@ -37,6 +37,8 @@ const addSignedUrls = async rows => {
 }
 
 function generateSignedUrl(key) {
+    console.log('in generateSignedUrl');
+    
     return new Promise(revolve => {
         let s3bucket = new AWS.S3({
             accessKeyId: IAM_USER_KEY,

@@ -15,6 +15,13 @@ router.post('/imageAndText', upload.single('file'), (req, res) => {
     uploadPostWithText(req, res);
 });
 
+router.get('/:id', (req, res) => {
+    const queryText = `SELECT "movies"."video_url" from "movies" WHERE "id" = $1`;
+    pool.query(queryText, [req.params.id])
+        .then(response => { generateSignedUrls(res, response.rows) })
+        .catch(error => { res.sendStatus(500) })
+})
+
 router.get('/', (req, res) => {
     const queryText = `SELECT * from post`;
     pool.query(queryText)

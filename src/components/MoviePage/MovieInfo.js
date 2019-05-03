@@ -14,11 +14,12 @@ class MovieInfo extends Component {
         return (
             <div>
                 <h1>INFO</h1>
-                <Images/>
+                
                 {this.props.reduxState.movieInfo.movieInfoReducer.map(movie =>
                 <MovieInfoItem key={movie.id} movie={movie}/>
 
                 )}
+                <Images />
                 {this.props.reduxState.movieInfo.movieInfoReducer.map(movie =>
                 <section key={movie.id}>
                     

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Player } from 'video-react';
 
 class Images extends Component {
     constructor(props) {
@@ -27,8 +28,14 @@ class Images extends Component {
                     return (
                         <div key={index} className="post">
                             <img className="image" src={image.media_url} alt="post" />
-                            
+                            <Player
+                                playsInline
+                                //poster={movie.image_url}
+                                src={image.media_url}
+                            />
+                            <button onClick={this.downloadMe} >Download</button>
                         </div>
+                        
                     )
                 })}
             </div>
