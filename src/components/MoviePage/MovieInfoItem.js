@@ -19,6 +19,10 @@ class MovieInfoItem extends Component {
         this.props.dispatch({ type: "TURN_TRUE", payload: this.props.movie.id })
     }
 
+    addDownload = () => {
+        this.props.dispatch({type: "NEW_DOWNLOAD", payload: this.props.movie.id})
+    }
+
     render() {
         return (
             <Item.Group divided key={this.props.movie.id}>
@@ -39,6 +43,7 @@ class MovieInfoItem extends Component {
                             
                             "Remove from Watchlist" : "Add to Watchlist"}
                             </Button>
+                            <Button onClick={this.addDownload} className="button">Download</Button>
                         </Item.Extra>
                     </Item.Content>
                 </Item>

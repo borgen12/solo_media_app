@@ -17,7 +17,17 @@ const movieInfoReducer = (state = [], action) => {
             return state;
     }
 }
+
+const downloadReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_DETAILS':
+            return action.payload;
+        default:
+            return state;
+    }
+}
 export default combineReducers({
     movieReducer,
     movieInfoReducer,
+    downloadReducer,
 });
