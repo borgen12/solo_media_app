@@ -27,7 +27,7 @@ class Images extends Component {
                 {this.state.images.map((image, index) => {
                     return (
                         <div key={index} className="post">
-                            <img className="image" src={image.media_url} alt="post" />
+                            
                             <Player
                                 playsInline
                                 //poster={movie.image_url}

@@ -45,16 +45,16 @@ function generateSignedUrl(key) {
             secretAccessKey: IAM_USER_SECRET,
             Bucket: BUCKET_NAME,
             signatureVersion: 'v4',
-            region: 'us-east-1',
+            region: 'us-east-2',
         });
         let urlParams = { Bucket: BUCKET_NAME, Key: key };
         verbose && console.log({ urlParams });
         s3bucket.getSignedUrl('getObject', urlParams, function (error, url) {
             if (error) {
-                verbose && console.log(error);
+                console.log(error);
                 resolve('');
             } else {
-                verbose && console.log('url in getsigned response: ', url);
+                console.log('url in getsigned response: ', url);
                 revolve(url);
             }
             verbose && console.log(url, error);

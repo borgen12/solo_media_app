@@ -20,7 +20,7 @@ const movieInfoReducer = (state = [], action) => {
 
 const downloadReducer = (state = [], action) => {
     switch (action.type) {
-        case 'SET_DETAILS':
+        case 'SET_DOWNLOAD':
             return action.payload;
         default:
             return state;

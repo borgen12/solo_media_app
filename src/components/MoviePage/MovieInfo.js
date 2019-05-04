@@ -8,6 +8,7 @@ import Images from '../Images/Images';
 
 
 class MovieInfo extends Component {
+    
 
 
     render() {
@@ -19,14 +20,14 @@ class MovieInfo extends Component {
                 <MovieInfoItem key={movie.id} movie={movie}/>
 
                 )}
-                <Images />
-                {this.props.reduxState.movieInfo.movieInfoReducer.map(movie =>
+                {/* <Images /> */}
+                {this.props.reduxState.downloads.downloadReducer.map(movie =>
                 <section key={movie.id}>
                     
                      <Player
                         playsInline
-                        poster={movie.image_url}
-                        src={movie.video_url}
+                        //poster={movie.image_url}
+                        src={movie.media_url}
                     />
                 </section>
                 )}

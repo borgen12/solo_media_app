@@ -21,6 +21,7 @@ import MovieInfo from '../MoviePage/MovieInfo';
 import AdminPage from '../AdminPage/AdminPage';
 import SideNavb from '../SideNav/SideNav';
 import SearchBar from '../SearchBar/SearchBar'
+import ProtectedRouteAdmin from '../ProtectedRouteAdmin/ProtectedRouteAdmin'
 
 import './App.css';
 
@@ -71,7 +72,7 @@ class App extends Component {
               path="/details"
               component={MovieInfo}
             />
-            <ProtectedRoute
+            <ProtectedRouteAdmin
               exact
               path="/admin"
               component={AdminPage}
