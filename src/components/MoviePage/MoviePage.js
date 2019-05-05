@@ -4,6 +4,7 @@ import './MoviePage.css';
 import { connect } from 'react-redux';
 import Divider from '@material-ui/core/Divider';
 import MovieCard from './MovieCard';
+import Footer from '../Footer/Footer';
 
 class MoviePage extends Component {
 
@@ -13,7 +14,7 @@ class MoviePage extends Component {
 
     render () {
         return (
-            <div>
+            <div className="moviepage">
                 <section>
 
                     <h2 className="recent">Watchlist</h2>
@@ -31,6 +32,7 @@ class MoviePage extends Component {
                     <h2>All Movies</h2>
                     <MovieToCard/> 
                 </section>
+                <Footer/>
             </div>
         )
     }

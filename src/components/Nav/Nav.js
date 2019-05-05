@@ -36,7 +36,11 @@ const Nav = (props) => (
       </Link>
     </div>
     <div className="search">
-      <SearchBar />
+    {props.user.id && (
+      <>
+          <SearchBar />
+      </>
+    )}
     </div>
   </div>
 );

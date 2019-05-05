@@ -10,3 +10,6 @@
 .watched {
     display: inline-block;
 }
+.body {
+    margin-top: 200px;
+}

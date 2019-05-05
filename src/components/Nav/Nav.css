@@ -9,7 +9,11 @@
 .nav {
   overflow: hidden;
   background-color: #E0E0E0;
-  display: inl
+  display: inl;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 200px;
+  border: black;
 }
 
 .nav-link {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import Footer from '../Footer/Footer';
 
 class RegisterPage extends Component {
   state = {
@@ -82,6 +83,7 @@ class RegisterPage extends Component {
             Login
           </button>
         </center>
+        <Footer />
       </div>
     );
   }
