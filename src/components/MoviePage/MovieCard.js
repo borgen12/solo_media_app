@@ -8,6 +8,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom'
+import shadows from '@material-ui/core/styles/shadows';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
 const styles = {
   card: {
@@ -15,6 +17,7 @@ const styles = {
     width: 210,
     display: "inline-block",
     margin: 25,
+    boxShadow: 3
     
   },
   media: {
@@ -35,7 +38,7 @@ class MovieCard extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Card className={classes.card} onClick={this.handleClick}>
+      <Card className={classes.card} onClick={this.handleClick} >
         <CardActionArea>
           <CardMedia
             className={classes.media}

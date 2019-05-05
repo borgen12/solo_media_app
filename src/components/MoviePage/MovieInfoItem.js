@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import 'semantic-ui-css/semantic.min.css';
 import { Item, Label } from 'semantic-ui-react';
 import "../../../node_modules/video-react/dist/video-react.css";
-import Button from '@material-ui/core/Button';
+import { Button } from 'semantic-ui-react'
+//import classes from '*.module.css';
+
 
 
 class MovieInfoItem extends Component {
@@ -24,6 +26,7 @@ class MovieInfoItem extends Component {
     }
 
     render() {
+        const { classes } = this.props;
         return (
             <Item.Group divided key={this.props.movie.id}>
                 <Item>
@@ -38,7 +41,9 @@ class MovieInfoItem extends Component {
                         <Item.Extra>
                             <Label>{this.props.movie.length} minutes</Label>
                             <Label icon='globe' content='Additional Languages' />
-                            <Button onClick={this.addToList} className="button">
+                            <Button 
+                            className="button"
+                            onClick={this.addToList} >
                             {this.props.movie.viewed ?
                             
                             "Remove from Watchlist" : "Add to Watchlist"}
@@ -52,8 +57,9 @@ class MovieInfoItem extends Component {
     }
 }
 
+
 const mapReduxStateToProps = reduxState => ({
     reduxState
 });
 
-export default connect(mapReduxStateToProps)(MovieInfoItem)
+export default connect(mapReduxStateToProps)(MovieInfoItem);
