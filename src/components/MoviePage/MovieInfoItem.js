@@ -48,7 +48,7 @@ class MovieInfoItem extends Component {
                             
                             "Remove from Watchlist" : "Add to Watchlist"}
                             </Button>
-                            <Button onClick={this.addDownload} className="button">Download</Button>
+                            <Button onClick={this.addDownload} className="button">Watch Now</Button>
                         </Item.Extra>
                     </Item.Content>
                 </Item>

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import AdminTable from './AdminTable';
-import Button from '@material-ui/core/Button';
+import { Button } from 'semantic-ui-react'
 import Divider from '@material-ui/core/Divider';
 import RawInputField from '../RawInputField/RawInputField'
 
@@ -19,6 +19,7 @@ const styles = theme => ({
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
         width: 200,
+        
     },
     description: {
         height: 100,
@@ -72,12 +73,9 @@ class AdminPage extends Component {
         const { classes } = this.props;
         return (
             <div className="Admin">
-                <header className="head">
-                    <h1>Add a Movie</h1>
-                </header>
-                {/* <Divider /> */}
+                <h1 className="head">Add a Movie</h1>
                 <section className="submit">
-                    <h1></h1>
+                    <h3>1. Add Metadata</h3>
                     <form onSubmit={this.addNewMovie} className={classes.root} autoComplete="off" className={classes.container} noValidate>
                         <TextField
                             label="Title"
@@ -86,7 +84,7 @@ class AdminPage extends Component {
                             onChange={this.handleChangeFor('title')}
                             margin="normal"
                         />
-                        <br/>
+                    
                         <TextField
                             label="Image URL"
                             className={classes.textField}
@@ -95,13 +93,13 @@ class AdminPage extends Component {
                             margin="normal"
                         />
                         
-                        <TextField
+                       {/*  <TextField
                             label="Video URL"
                             className={classes.textField}
                             value={this.state.newMovie.video_url}
                             onChange={this.handleChangeFor('video_url')}
                             margin="normal"
-                        />
+                        /> */}
                         <br/>
                         <TextField
                             label="Length (min)"
@@ -125,9 +123,11 @@ class AdminPage extends Component {
                             onChange={this.handleChangeFor('description')}
                             margin="normal"
                         />
+                        <br />
+                        <Button onClick={this.addNewMovie} className="button">Add MetaData</Button>
                         <br/>
-                        <RawInputField/>
-                        <Button onClick={this.addNewMovie} className="button">Add Movie</Button>
+                        <h3 className="step2">2. Add Video File</h3>
+                        <RawInputField />
                     </form>
                 </section>
                 <br/>
