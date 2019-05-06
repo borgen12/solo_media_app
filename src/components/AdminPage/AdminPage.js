@@ -14,6 +14,7 @@ const styles = theme => ({
         display: 'flex',
         flexWrap: 'wrap',
         display: "inline-block",
+        color: "white",
     },
     textField: {
         marginLeft: theme.spacing.unit,
@@ -76,59 +77,53 @@ class AdminPage extends Component {
                 <h1 className="head">Add a Movie</h1>
                 <section className="submit">
                     <h3>1. Add Metadata</h3>
-                    <form onSubmit={this.addNewMovie} className={classes.root} autoComplete="off" className={classes.container} noValidate>
-                        <TextField
-                            label="Title"
-                            className={classes.textField}
-                            value={this.state.newMovie.title}
-                            onChange={this.handleChangeFor('title')}
-                            margin="normal"
-                        />
-                    
-                        <TextField
-                            label="Image URL"
-                            className={classes.textField}
-                            value={this.state.newMovie.image_url}
-                            onChange={this.handleChangeFor('image_url')}
-                            margin="normal"
-                        />
-                        
-                       {/*  <TextField
-                            label="Video URL"
-                            className={classes.textField}
-                            value={this.state.newMovie.video_url}
-                            onChange={this.handleChangeFor('video_url')}
-                            margin="normal"
-                        /> */}
-                        <br/>
-                        <TextField
-                            label="Length (min)"
-                            className={classes.textField}
-                            value={this.state.newMovie.length}
-                            onChange={this.handleChangeFor('length')}
-                            margin="normal"
-                        />
-                        <TextField
-                            label="Year (****)"
-                            className={classes.textField}
-                            value={this.state.newMovie.year}
-                            onChange={this.handleChangeFor('year')}
-                            margin="normal"
-                        />
-                        <br/>
-                        <TextField
-                            label="Description"
-                            className={classes.description}
-                            value={this.state.newMovie.description}
-                            onChange={this.handleChangeFor('description')}
-                            margin="normal"
-                        />
-                        <br />
-                        <Button onClick={this.addNewMovie} className="button">Add MetaData</Button>
-                        <br/>
+                    <div className="formdiv">
+                        <form onSubmit={this.addNewMovie} className={classes.root} autoComplete="off" className={classes.container} noValidate>
+                            <TextField
+                                label="Title"
+                                className={classes.textField}
+                                value={this.state.newMovie.title}
+                                onChange={this.handleChangeFor('title')}
+                                margin="normal"
+                            />
+
+                            <TextField
+                                label="Image URL"
+                                className={classes.textField}
+                                value={this.state.newMovie.image_url}
+                                onChange={this.handleChangeFor('image_url')}
+                                margin="normal"
+                            />
+                            <br />
+                            <TextField
+                                label="Length (min)"
+                                className={classes.textField}
+                                value={this.state.newMovie.length}
+                                onChange={this.handleChangeFor('length')}
+                                margin="normal"
+                            />
+                            <TextField
+                                label="Year (****)"
+                                className={classes.textField}
+                                value={this.state.newMovie.year}
+                                onChange={this.handleChangeFor('year')}
+                                margin="normal"
+                            />
+                            <br />
+                            <TextField
+                                label="Description"
+                                className={classes.description}
+                                value={this.state.newMovie.description}
+                                onChange={this.handleChangeFor('description')}
+                                margin="normal"
+                            />
+                            <br />
+                            <Button onClick={this.addNewMovie} className="button">Add MetaData</Button>
+                            <br />
+                        </form>
                         <h3 className="step2">2. Add Video File</h3>
                         <RawInputField />
-                    </form>
+                    </div>
                 </section>
                 <br/>
                 <section className="table">

@@ -13,7 +13,10 @@
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: 200px;
+  margin-top: 30px;
   border: black;
+  border-style: solid;
+  border-width: 1px;
 }
 
 .nav-link {
@@ -33,7 +36,7 @@
 }
 
 .nav-link:hover {
-  background-color: #008183;
+  background-color: #37474F;
 }
 
 .nav-right {
